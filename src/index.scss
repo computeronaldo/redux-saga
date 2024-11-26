@@ -1,0 +1,11 @@
+$primaryColor: #4F46E5;
+$secondaryColor: #EAECF0;
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+  font-family: Poppins, monospace, sans-serif;
+  background-color: $secondaryColor;
+}

@@ -1,5 +1,5 @@
 import { call, put, takeEvery } from "redux-saga/effects";
-import { GET_USERS_FETCH, GET_USERS_SUCCESS } from "./actions";
+import { GET_USERS_FETCH, GET_USERS_SUCCESS } from "../actions/actions";
 
 function usersFetch() {
   return fetch("https://jsonplaceholder.typicode.com/users").then((response) =>

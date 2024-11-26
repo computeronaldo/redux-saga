@@ -1,12 +1,12 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./index.css";
+import "./index.scss";
 import { Provider } from "react-redux";
 import { combineReducers, createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga";
-import myFirstReducer from "./reducer.js";
+import myFirstReducer from "./reducers/reducer.js";
 import App from "./App.jsx";
-import mySaga from "./sagas";
+import mySaga from "./sagas/sagas";
 
 const sagaMiddleware = createSagaMiddleware();
 
