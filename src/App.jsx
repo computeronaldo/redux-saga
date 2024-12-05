@@ -1,5 +1,7 @@
 import "./App.scss";
 import { useDispatch, useSelector } from "react-redux";
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
 import {
   getUsersFetch,
   updateUser,
@@ -32,6 +34,24 @@ function App() {
   const [userIdUpdate, setUserIdToUpdate] = useState(-1);
   const [name, setName] = useState("");
 
+  const showToast = (message, type) => {
+    Toastify({
+      text: message,
+      duration: 3000,
+      close: true,
+      gravity: "top",
+      position: "left",
+      stopOnFocus: true,
+      style: {
+        fontFamily: "'Monospace', sans-serif",
+        background:
+          type === "update"
+            ? "linear-gradient(to right, #00b09b, #96c93d)"
+            : "linear-gradient(to right, #ff5f6d, #ffc371)",
+      },
+    }).showToast();
+  };
+
   const handleClick = () => {
     dispatch(getUsersFetch());
   };
@@ -50,12 +70,14 @@ function App() {
 
   const deleteUserBtnClick = (id) => {
     dispatch(deleteUser(id));
+    showToast("User deleted successfully", "delete");
   };
 
   const updateUserInfo = (id) => {
     setUserIdToUpdate(-1);
     setUpdateBtnClicked(false);
     dispatch(updateUser(id, name));
+    showToast("User updated successfully", "update");
   };
 
   const handleNameChange = (event) => {
